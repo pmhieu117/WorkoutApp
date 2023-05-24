@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="number_picker_text_size">36sp</dimen>
+    <dimen name="button_text_size">20sp</dimen>
+    <dimen name="text_size_24sp">24sp</dimen>
+    <dimen name="width_height_progress">50dp</dimen>
+    <dimen name="width_arc_background">3dp</dimen>
+    <dimen name="width_arc_primary">3dp</dimen>
+    <dimen name="text_size_progress">14sp</dimen>
+</resources>

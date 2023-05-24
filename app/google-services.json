@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "754946078939",
+    "project_id": "btlandroid-b5550",
+    "storage_bucket": "btlandroid-b5550.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754946078939:android:57290129b4ec89d69674fe",
+        "android_client_info": {
+          "package_name": "com.hieupm.btlandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "754946078939-blomeqrgdgh6du7p9a2a80am4d8i5mad.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hieupm.btlandroid",
+            "certificate_hash": "565a90508c84e01adde0e72f4d40b3051f8de680"
+          }
+        },
+        {
+          "client_id": "754946078939-57tm2l21vm7r0rdf6vpbmkhjnhu5agc3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARx7V1cmWP6gHlzEtB-WGLcQf5uZN4FUw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "754946078939-57tm2l21vm7r0rdf6vpbmkhjnhu5agc3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
