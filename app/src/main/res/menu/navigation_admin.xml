@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/mWorkout"
-        android:title="Admin"
-        android:icon="@drawable/ic_workout"/>
-    <item android:id="@+id/mReport"
-        android:title="Admin"
+    <item android:id="@+id/mExerciseAdmin"
+        android:title="Exercise"
+        android:icon="@drawable/exercise_edit"/>
+    <item android:id="@+id/mDietAdmin"
+        android:title="Diet"
+        android:icon="@drawable/ic_diet"/>
+    <item android:id="@+id/mReportAdmin"
+        android:title="Report"
         android:icon="@drawable/ic_report"/>
-    <item android:id="@+id/mSetting"
-        android:title="Admin"
-        android:icon="@drawable/ic_setting"/>
 </menu>

@@ -13,8 +13,8 @@ class AdminViewPagerAdapter (fm: FragmentManager) : FragmentPagerAdapter(fm) {
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> AdminExerciseFragment()
-            1 -> AdminExerciseFragment()
-            2 -> AdminExerciseFragment()
+            1 -> AdminDietFragment()
+            2 -> AdminReportFragment()
             else -> throw IllegalArgumentException("Invalid position: $position")
         }
     }
