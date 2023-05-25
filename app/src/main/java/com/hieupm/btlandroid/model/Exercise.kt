@@ -4,6 +4,7 @@ import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties
 class Exercise(
+    val id : String ?= null,
     val title : String ?=null,
     val set_num : Int ?= null,
     val set_time : Int ?= null,
