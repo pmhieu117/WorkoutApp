@@ -45,9 +45,6 @@ class AdminActivity : AppCompatActivity() {
                         navigationView.getMenu().findItem(R.id.mExerciseAdmin).setChecked(true);
                     }
                     1 -> {
-                        navigationView.getMenu().findItem(R.id.mDietAdmin).setChecked(true);
-                    }
-                    2 -> {
                         navigationView.getMenu().findItem(R.id.mReportAdmin).setChecked(true);
                     }
                 }
@@ -66,12 +63,8 @@ class AdminActivity : AppCompatActivity() {
                     viewPager.setCurrentItem(0)
                     true
                 }
-                R.id.mDietAdmin -> {
-                    viewPager.setCurrentItem(1)
-                    true
-                }
                 R.id.mReportAdmin -> {
-                    viewPager.setCurrentItem(2)
+                    viewPager.setCurrentItem(1)
                     true
                 }
                 // Xử lý các mục khác nếu cần

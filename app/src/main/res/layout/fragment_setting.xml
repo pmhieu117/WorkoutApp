@@ -20,7 +20,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
         </TextView>
-
         <LinearLayout
             android:layout_marginTop="@dimen/_16sdp"
             android:orientation="horizontal"
@@ -28,7 +27,8 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:src="@drawable/my_profile"
+                android:src="@drawable/account"
+                android:background="@color/yellow"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"/>
 
@@ -37,9 +37,61 @@
                 android:text="@string/my_profile"
                 android:textSize="@dimen/_16ssp"
                 android:layout_marginStart="@dimen/_16sdp"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/yellow"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:orientation="vertical">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_bg"
+                android:hint="Email"
+                android:id="@+id/email"
+                android:layout_marginTop="16dp"
+                android:padding="12dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_bg"
+                android:hint="Full Name"
+                android:id="@+id/fullname"
+                android:layout_marginTop="16dp"
+                android:padding="12dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_bg"
+                android:hint="Date of birth"
+                android:id="@+id/birth"
+                android:layout_marginTop="16dp"
+                android:padding="12dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_bg"
+                android:hint="Gender"
+                android:id="@+id/gender"
+                android:layout_marginTop="16dp"
+                android:padding="12dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/yellow"
+                android:padding="16dp"
+                android:text="UPDATE PROFILE"
+                android:id="@+id/btn_update"
+                android:textAllCaps="false"/>
         </LinearLayout>
 
         <LinearLayout
@@ -49,118 +101,53 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:src="@drawable/reminder"
+                android:src="@drawable/lock_reset"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"/>
 
             <TextView
-                android:id="@+id/btnReminder"
-                android:text="@string/reminder"
-                android:textSize="@dimen/_16ssp"
+                android:id="@+id/btnChangePass"
+                android:text="Change Password"
+                android:textSize="@dimen/_15ssp"
                 android:layout_marginStart="@dimen/_16sdp"
-                android:textColor="@color/colorPrimary"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:textStyle="bold"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_marginTop="@dimen/_16sdp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+<!--        <TextView-->
+<!--            android:id="@+id/btnChangeLanguage"-->
+<!--            android:text="@string/language"-->
+<!--            android:textSize="@dimen/_14ssp"-->
+<!--            android:layout_marginTop="@dimen/_14sdp"-->
+<!--            android:layout_marginStart="@dimen/_34sdp"-->
+<!--            android:textColor="@color/colorBlack"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="end">
             <ImageView
-                android:src="@drawable/sound"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"/>
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/logout"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:layout_marginStart="@dimen/_34sdp"/>
 
             <TextView
-                android:text="@string/sound_options"
-                android:textSize="@dimen/_16ssp"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:textColor="@color/colorPrimary"
+                android:id="@+id/btnLogout"
+                android:text="Log out"
+                android:textSize="@dimen/_20ssp"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:textColor="@color/colorBlack"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:textStyle="bold"/>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="@dimen/_16sdp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-
-            <TextView
-                android:text="@string/music"
-                android:textSize="@dimen/_14ssp"
-                android:layout_marginStart="@dimen/_34sdp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <com.github.angads25.toggle.widget.LabeledSwitch
-                android:id="@+id/labeledSwitch"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_22sdp"
-                android:layout_marginStart="@dimen/_150sdp"
-                app:colorBorder="@color/colorGrey"
-                android:layout_gravity="end"
-                app:textOn="@string/on"
-                app:textOff="@string/off"
-                app:colorOn="#4CAF50"
-                app:on="false" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="@dimen/_16sdp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:src="@drawable/general"
-                android:layout_width="@dimen/_18sdp"
-                android:layout_height="@dimen/_18sdp"/>
-
-            <TextView
-                android:text="@string/general"
-                android:textSize="@dimen/_16ssp"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:textColor="@color/colorPrimary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/btnChangeLanguage"
-            android:text="@string/language"
-            android:textSize="@dimen/_14ssp"
-            android:layout_marginTop="@dimen/_14sdp"
-            android:layout_marginStart="@dimen/_34sdp"
-            android:textColor="@color/colorBlack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id="@+id/btnDeleteAll"
-            android:text="@string/delete_all"
-            android:textSize="@dimen/_14ssp"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:layout_marginStart="@dimen/_34sdp"
-            android:textColor="@color/colorBlack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id="@+id/btnLogout"
-            android:text="Log out"
-            android:textSize="@dimen/_14ssp"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:layout_marginStart="@dimen/_34sdp"
-            android:textColor="@color/colorBlack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

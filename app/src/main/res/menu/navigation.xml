@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/mWorkout"
-        android:title="Tập luyện"
+        android:title="@string/Workout"
         android:icon="@drawable/ic_workout"/>
     <item android:id="@+id/mReport"
-        android:title="Báo cáo"
+        android:title="@string/Report"
         android:icon="@drawable/ic_report"/>
-    <item android:id="@+id/mDiet"
-        android:title="Ăn kiêng"
-        android:icon="@drawable/ic_diet"/>
     <item android:id="@+id/mSetting"
-        android:title="Cài đặt"
+        android:title="@string/setting"
         android:icon="@drawable/ic_setting"/>
 </menu>

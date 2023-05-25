@@ -7,14 +7,13 @@ import com.hieupm.btlandroid.views.fragments.*
 
 class AdminViewPagerAdapter (fm: FragmentManager) : FragmentPagerAdapter(fm) {
     override fun getCount(): Int {
-        return 3
+        return 2
     }
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> AdminExerciseFragment()
-            1 -> AdminDietFragment()
-            2 -> AdminReportFragment()
+            1 -> AdminReportFragment()
             else -> throw IllegalArgumentException("Invalid position: $position")
         }
     }

@@ -1,5 +1,6 @@
 package com.hieupm.btlandroid.model
 
+import com.google.firebase.database.Exclude
 import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties
@@ -11,5 +12,4 @@ data class User(
     val gender: String? = null,
     val role: String? = null
     ){
-
 }

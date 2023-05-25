@@ -25,28 +25,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgExercise" />
 
-    <TextView
-        android:id="@+id/btnAddMoreTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_textview_primary_color"
-        android:padding="@dimen/_2sdp"
-        android:text="+20s"
-        android:textColor="@color/colorPrimary"
-        android:textSize="@dimen/_18ssp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvTime"
-        app:layout_constraintEnd_toStartOf="@+id/tvTime"
-        app:layout_constraintTop_toTopOf="@+id/tvTime" />
 
     <TextView
-        android:id="@+id/tvTime"
+        android:id="@+id/tvDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_background_item_white"
-        tools:text="15'"
         android:textStyle="bold"
         android:textColor="#E91E63"
-        android:textSize="@dimen/_38ssp"
+        android:text="HAHA"
+        android:textSize="@dimen/_15ssp"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -17,6 +17,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var tvPassword:TextInputEditText
     private lateinit var btLogin : Button
     private lateinit var tvSignUp : TextView
+    private lateinit var gethelplogin : TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -31,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
         tvPassword = findViewById(R.id.password)
         btLogin = findViewById(R.id.btn_login)
         tvSignUp = findViewById(R.id.txt_signup)
+        gethelplogin = findViewById(R.id.gethelplogin)
     }
     private fun setOnClick(){
         btLogin.setOnClickListener {
@@ -46,6 +48,16 @@ class LoginActivity : AppCompatActivity() {
         tvSignUp.setOnClickListener {
             var intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
+        }
+
+        gethelplogin.setOnClickListener {
+            val emailAddress = tvEmail.text.toString().trim()
+            Constants.AUTH.sendPasswordResetEmail(emailAddress)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Toast(this).showCustomToast("Send a password reset email !", this,Constants.CUSTOM_TOAST_SUCCESS)
+                    }
+                }
         }
     }
 

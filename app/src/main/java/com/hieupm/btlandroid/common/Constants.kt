@@ -16,7 +16,7 @@ object Constants {
 
     // Database Collection
     const val USERS = "users/"
-    const val DIET = "diets/"
     const val EXERCISE = "exercises/"
     const val LEVEL = "levels/"
+    const val FAVOURITE = "favourites/"
 }

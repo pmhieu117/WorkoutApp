@@ -91,9 +91,6 @@ class MainActivity : AppCompatActivity() {
                         navigationView.getMenu().findItem(R.id.mReport).setChecked(true);
                     }
                     2 -> {
-                        navigationView.getMenu().findItem(R.id.mDiet).setChecked(true);
-                    }
-                    3 -> {
                         navigationView.getMenu().findItem(R.id.mSetting).setChecked(true);
                     }
                 }
@@ -116,12 +113,8 @@ class MainActivity : AppCompatActivity() {
                     viewPager.setCurrentItem(1)
                     true
                 }
-                R.id.mDiet -> {
-                    viewPager.setCurrentItem(2)
-                    true
-                }
                 R.id.mSetting -> {
-                    viewPager.setCurrentItem(3)
+                    viewPager.setCurrentItem(2)
                     true
                 }
                 // Xử lý các mục khác nếu cần

@@ -49,6 +49,7 @@
     <string name="male">Male</string>
     <string name="coming_soon">Coming soon</string>
     <string name="minutes">Minutes</string>
+    <string name="seconds">Seconds</string>
     <string name="workouts">Workouts</string>
     <string name="favourite">Favourite</string>
     <string name="empty">Empty</string>

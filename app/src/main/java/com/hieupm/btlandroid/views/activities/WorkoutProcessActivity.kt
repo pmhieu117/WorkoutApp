@@ -18,27 +18,29 @@ class WorkoutProcessActivity : AppCompatActivity() {
         val fragment_workout_list_exercise = WorkoutListExerciseFragment()
         val fragment_workout_play = WorkoutPlayFragment()
         val fragment_workout_wait = WorkoutWaitFragment()
-
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.nav_frame, fragment_workout_list_exercise)
-            commit()
-        }
+        val bundle = Bundle()
 
         intent.getStringExtra("LEVEL")?.let {
             when (it) {
                 "beginner" -> {
-                    Toast(this).showCustomToast("BEGINNER", this, Constants.CUSTOM_TOAST_SUCCESS)
+                    bundle.putString("level", "beginner")
+
                 }
                 "intermediate" -> {
-                    Toast(this).showCustomToast("INTERMEDIATE", this,Constants.CUSTOM_TOAST_SUCCESS)
+                    bundle.putString("level", "intermediate")
                 }
                 "advanced" -> {
-                    Toast(this).showCustomToast("ADVANCED", this,Constants.CUSTOM_TOAST_SUCCESS)
+                    bundle.putString("level", "advanced")
                 }
                 else -> {
                     Toast(this).showCustomToast("FAIL WorkoutProcessActivity", this,Constants.CUSTOM_TOAST_ERROR)
                 }
             }
+        }
+        fragment_workout_list_exercise.arguments = bundle
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.nav_frame, fragment_workout_list_exercise)
+            commit()
         }
     }
 }

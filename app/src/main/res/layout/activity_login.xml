@@ -51,13 +51,13 @@
                 android:padding="12dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <CheckBox
-            android:id="@+id/checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="110dp"
-            android:layout_marginTop="16dp"
-            android:text="Remember account" />
+<!--        <CheckBox-->
+<!--            android:id="@+id/checkbox"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="110dp"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:text="Remember account" />-->
 
         <Button
             android:id="@+id/btn_login"
