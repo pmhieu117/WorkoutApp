@@ -74,32 +74,32 @@
                     android:layout_below="@id/tvWorkouts"
                     android:text="@string/workouts"
                     android:textColor="@color/colorWhite"
-                    app:layout_constraintEnd_toStartOf="@id/tvFavouriteUnit"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/tvTimeUnit" />
+                    app:layout_constraintStart_toEndOf="@+id/tvTimeUnit"
+                    android:layout_marginLeft="30dp"/>
 
-                <TextView
-                    android:id="@+id/tvFavourite"
-                    style="@style/TextViewStyleWhite"
-                    android:layout_width="82dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:text="0"
-                    app:layout_constraintBottom_toTopOf="@id/tvFavouriteUnit"
-                    app:layout_constraintEnd_toEndOf="@id/tvFavouriteUnit"
-                    app:layout_constraintStart_toStartOf="@id/tvFavouriteUnit"
-                    />
+<!--                <TextView-->
+<!--                    android:id="@+id/tvFavourite"-->
+<!--                    style="@style/TextViewStyleWhite"-->
+<!--                    android:layout_width="82dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:text="0"-->
+<!--                    app:layout_constraintBottom_toTopOf="@id/tvFavouriteUnit"-->
+<!--                    app:layout_constraintEnd_toEndOf="@id/tvFavouriteUnit"-->
+<!--                    app:layout_constraintStart_toStartOf="@id/tvFavouriteUnit"-->
+<!--                    />-->
 
-                <TextView
-                    android:id="@+id/tvFavouriteUnit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_below="@id/tvWorkouts"
-                    android:text="@string/favourite"
-                    android:textColor="@color/colorWhite"
-                    app:layout_constraintStart_toEndOf="@id/tvWorkoutsUnit"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+<!--                <TextView-->
+<!--                    android:id="@+id/tvFavouriteUnit"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:layout_below="@id/tvWorkouts"-->
+<!--                    android:text="@string/favourite"-->
+<!--                    android:textColor="@color/colorWhite"-->
+<!--                    app:layout_constraintStart_toEndOf="@id/tvWorkoutsUnit"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent" />-->
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

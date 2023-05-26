@@ -47,8 +47,13 @@ class SettingFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_setting, container, false)
         init(view)
         setOnClick(requireActivity())
-        displayProfile()
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.w("exerciseList","SettingFragment")
+        displayProfile()
     }
 
     // func defind

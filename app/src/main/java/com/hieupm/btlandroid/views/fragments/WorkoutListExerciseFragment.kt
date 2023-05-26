@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
-import com.google.firebase.database.ktx.getValue
+
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.hieupm.btlandroid.R
@@ -27,7 +27,7 @@ class WorkoutListExerciseFragment : Fragment() {
     private lateinit var tvLevel : TextView
     private lateinit var tvTime : TextView
     private lateinit var tvWorkouts : TextView
-    private lateinit var tvFavourite : TextView
+    //private lateinit var tvFavourite : TextView
 
     private lateinit var recyclerView : RecyclerView
     private lateinit var workoutListExerciseAdapter: WorkoutListExerciseAdapter
@@ -48,18 +48,18 @@ class WorkoutListExerciseFragment : Fragment() {
                     "beginner" -> {
                         frameLayoutIntro.setBackgroundResource(R.drawable.beginner)
                         tvLevel.text= "BEGINNER"
-                        tvFavourite.text= "0"
+                        //tvFavourite.text= "0"
 
                     }
                     "intermediate" -> {
                         frameLayoutIntro.setBackgroundResource(R.drawable.intermediate)
-                        tvLevel.text= "BEGINNER"
-                        tvFavourite.text= "0"
+                        tvLevel.text= "INTERMEDIATE"
+                        //tvFavourite.text= "0"
                     }
                     "advanced" -> {
                         frameLayoutIntro.setBackgroundResource(R.drawable.advanced)
-                        tvLevel.text= "BEGINNER"
-                        tvFavourite.text= "0"
+                        tvLevel.text= "ADVANCED"
+                        //tvFavourite.text= "0"
                     }
                     else -> {
                         Toast(view.context).showCustomToast("FAIL WorkoutProcessActivity", requireActivity(), Constants.CUSTOM_TOAST_ERROR)
@@ -77,7 +77,7 @@ class WorkoutListExerciseFragment : Fragment() {
         tvLevel = view.findViewById(R.id.tvLevel)
         tvTime = view.findViewById(R.id.tvTime)
         tvWorkouts = view.findViewById(R.id.tvWorkouts)
-        tvFavourite = view.findViewById(R.id.tvFavourite)
+        //tvFavourite = view.findViewById(R.id.tvFavourite)
     }
 
     private fun displayAdapter(view: View,level: String){

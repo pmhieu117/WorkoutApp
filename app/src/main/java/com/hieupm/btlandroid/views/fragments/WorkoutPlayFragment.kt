@@ -25,11 +25,11 @@ import com.hieupm.btlandroid.R
 import com.hieupm.btlandroid.common.Constants
 import com.hieupm.btlandroid.database.FirebaseDatabaseHelper
 import com.hieupm.btlandroid.model.Exercise
+import com.hieupm.btlandroid.model.Favourite
 import java.text.SimpleDateFormat
 import java.util.Date
 
 class WorkoutPlayFragment : Fragment() {
-    private val handler = Handler()
     private var delayTime: Long = 3000 // 3 giây
     private var mediaPlayer: MediaPlayer? = null
     private var isMusicPlaying = false
@@ -44,6 +44,9 @@ class WorkoutPlayFragment : Fragment() {
 
     private val storageReference: StorageReference = FirebaseStorage.getInstance().reference
     private val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().reference
+
+    private var handler: Handler? = null
+    private var isFragmentVisible = false
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -66,16 +69,19 @@ class WorkoutPlayFragment : Fragment() {
                         tvDesc.text = ex.description
                         Glide.with(view).asGif().load(ex.uri_img).into(imgExercise)
                         delayTime = (ex.set_time?.toLong() ?: 1) * 1000
-                        handler.postDelayed({
+                        handler = Handler()
+                        handler!!.postDelayed({
                             // Chạy Fragment mới
-                            val bundle = Bundle()
-                            bundle.putString("level", ex.level_id)
-                            val fragmentB = WorkoutListExerciseFragment()
-                            val fragmentManager = requireActivity().supportFragmentManager
-                            fragmentB.arguments = bundle
-                            fragmentManager.beginTransaction()
-                                .replace(R.id.nav_frame, fragmentB)
-                                .commit()
+                            if (isFragmentVisible) {
+                                val bundle = Bundle()
+                                bundle.putString("level", ex.level_id)
+                                val fragmentB = WorkoutListExerciseFragment()
+                                val fragmentManager = requireActivity().supportFragmentManager
+                                fragmentB.arguments = bundle
+                                fragmentManager.beginTransaction()
+                                    .replace(R.id.nav_frame, fragmentB)
+                                    .commit()
+                            }
                         }, delayTime)
                     }
                     // ...
@@ -89,7 +95,15 @@ class WorkoutPlayFragment : Fragment() {
         }
         return view
     }
-
+    override fun onResume() {
+        super.onResume()
+        isFragmentVisible = true
+    }
+    override fun onPause() {
+        super.onPause()
+        isFragmentVisible = false
+        handler?.removeCallbacksAndMessages(null)
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         mediaPlayer?.release()
@@ -145,8 +159,9 @@ class WorkoutPlayFragment : Fragment() {
                         val currentTime = Date()
                         val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
                         val formattedTime = dateFormat.format(currentTime)
-                        val path : String = Constants.FAVOURITE+user.uid+"_"+bundle.getString("exercise_id").toString()+"/time"
-                        databaseReference.child(path).setValue(formattedTime)
+                        val path : String = Constants.FAVOURITE+user.uid+"_"+bundle.getString("exercise_id").toString()
+                        val favourite = Favourite(user.uid+"_"+bundle.getString("exercise_id").toString(),formattedTime)
+                        FirebaseDatabaseHelper.addObject(path,favourite)
                         isFavoutite=true
                         btnFavourite.setImageResource(R.drawable.ic_favourited)
                     }

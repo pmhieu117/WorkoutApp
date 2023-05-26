@@ -1,136 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical">
+    tools:context=".views.activities.AdminActivity">
     <LinearLayout
-        android:orientation="vertical"
-        android:background="@color/gray"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
-        <EditText
-            android:id="@+id/tvExName"
-            android:hint="Name Exercise"
-            android:textSize="20dp"
-            android:paddingLeft="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <EditText
-            android:id="@+id/tvDesc"
-            android:hint="Description"
-            android:textSize="20dp"
-            android:paddingLeft="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:background="@color/gray"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+            <EditText
+                android:id="@+id/tvExName"
+                android:hint="Name Exercise"
+                android:textSize="20dp"
+                android:paddingLeft="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/tvDesc"
+                android:hint="Description"
+                android:textSize="20dp"
+                android:paddingLeft="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <LinearLayout
-                android:orientation="vertical"
-                android:background="@color/gray"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp">
-                <ImageView
-                    android:id="@+id/imgDisplay"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/ic_camera" />
-
-                <Button
-                    android:id="@+id/btSelectImg"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="Upload"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/rounded_transparent_button"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:background="@color/gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <EditText
-                    android:id="@+id/tvSetNum"
-                    android:hint="Set Number"
-                    android:textSize="20dp"
-                    android:paddingLeft="15dp"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:background="@color/gray"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="number"/>
-                <EditText
-                    android:id="@+id/tvSetTime"
-                    android:hint="Set Time"
-                    android:textSize="20dp"
-                    android:paddingLeft="15dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"/>
-                <Spinner
-                    android:id="@+id/spAdd"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"/>
+                    android:layout_margin="10dp">
+                    <ImageView
+                        android:id="@+id/imgDisplay"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@drawable/ic_camera" />
+
+                    <Button
+                        android:id="@+id/btSelectImg"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Upload"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/rounded_transparent_button"/>
+                </LinearLayout>
 
                 <LinearLayout
-                    android:orientation="horizontal"
-                    android:weightSum="2"
+                    android:orientation="vertical"
+                    android:background="@color/gray"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <Button
-                        android:id="@+id/btnAdd"
-                        android:layout_weight="1"
-                        android:text="Add"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/rounded_transparent_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <Button
-                        android:id="@+id/btnDeleteAll"
-                        android:layout_width="wrap_content"
+                    <EditText
+                        android:id="@+id/tvSetNum"
+                        android:hint="Set Number"
+                        android:textSize="20dp"
+                        android:paddingLeft="15dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/rounded_transparent_button"
-                        android:text="Delete all" />
+                        android:inputType="number"/>
+                    <EditText
+                        android:id="@+id/tvSetTime"
+                        android:hint="Set Time"
+                        android:textSize="20dp"
+                        android:paddingLeft="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"/>
+                    <Spinner
+                        android:id="@+id/spAdd"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <Button
+                            android:id="@+id/btnAdd"
+                            android:layout_weight="1"
+                            android:text="Add"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/rounded_transparent_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <Button
+                            android:id="@+id/btnDeleteAll"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/rounded_transparent_button"
+                            android:text="Delete all" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:background="@color/yellow"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp">
-        <TextView
-            android:text="Exercise List"
-            android:textSize="20dp"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:paddingLeft="20dp"
-            android:paddingRight="30dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"/>
-        <Spinner
-            android:id="@+id/spFilter"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:background="@color/yellow"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:text="Exercise List"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+            <Spinner
+                android:id="@+id/spFilter"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleViewListEx"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_exercise_recyclerview"/>
     </LinearLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleViewListEx"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:listitem="@layout/item_exercise_recyclerview"/>
-</LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="@color/yellow"
+        android:src="@drawable/ic_account_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         init()
         setOnClick()
     }
@@ -88,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                         navigationView.getMenu().findItem(R.id.mWorkout).setChecked(true);
                     }
                     1 -> {
-                        navigationView.getMenu().findItem(R.id.mReport).setChecked(true);
+                        navigationView.getMenu().findItem(R.id.mFavourite).setChecked(true);
                     }
                     2 -> {
                         navigationView.getMenu().findItem(R.id.mSetting).setChecked(true);
@@ -109,7 +108,7 @@ class MainActivity : AppCompatActivity() {
                     viewPager.setCurrentItem(0)
                     true
                 }
-                R.id.mReport -> {
+                R.id.mFavourite -> {
                     viewPager.setCurrentItem(1)
                     true
                 }

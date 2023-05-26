@@ -8,7 +8,6 @@ import com.hieupm.btlandroid.common.Constants
 import com.hieupm.btlandroid.custom.showCustomToast
 import com.hieupm.btlandroid.views.fragments.WorkoutListExerciseFragment
 import com.hieupm.btlandroid.views.fragments.WorkoutPlayFragment
-import com.hieupm.btlandroid.views.fragments.WorkoutWaitFragment
 
 class WorkoutProcessActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +16,6 @@ class WorkoutProcessActivity : AppCompatActivity() {
 
         val fragment_workout_list_exercise = WorkoutListExerciseFragment()
         val fragment_workout_play = WorkoutPlayFragment()
-        val fragment_workout_wait = WorkoutWaitFragment()
         val bundle = Bundle()
 
         intent.getStringExtra("LEVEL")?.let {

@@ -3,9 +3,9 @@
     <item android:id="@+id/mWorkout"
         android:title="@string/Workout"
         android:icon="@drawable/ic_workout"/>
-    <item android:id="@+id/mReport"
-        android:title="@string/Report"
-        android:icon="@drawable/ic_report"/>
+    <item android:id="@+id/mFavourite"
+        android:title="@string/favourite"
+        android:icon="@drawable/heart"/>
     <item android:id="@+id/mSetting"
         android:title="@string/setting"
         android:icon="@drawable/ic_setting"/>
