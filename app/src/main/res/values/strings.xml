@@ -83,4 +83,10 @@
         <item>Advanced</item>
     </string-array>
 
+
+
+    <string name="facebook_app_id">797574174913587</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">1b8837b5a1f7c33135aba4af91ffd864</string>
+
 </resources>

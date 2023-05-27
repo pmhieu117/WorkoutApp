@@ -38,6 +38,7 @@ class WorkoutListExerciseAdapter (private val context: Context,private var exerc
             tvTitle.text = exercise.title
             tvCount.text = "x"+exercise.set_num.toString()
             Glide.with(itemView).asGif().load(exercise.uri_img).into(imgExercise)
+            // bắt sự kiện click vào item
             itemView.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putString("exercise_id",exercise.id)

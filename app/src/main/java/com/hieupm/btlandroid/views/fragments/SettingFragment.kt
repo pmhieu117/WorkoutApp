@@ -74,147 +74,215 @@ class SettingFragment : Fragment() {
             startActivity(intent)
             activity?.finish()
         }
-
         btn_update.setOnClickListener {
-            val user = Constants.AUTH.currentUser
-            user?.let {
-                val uid = user.uid
-                val path : String = Constants.USERS+uid
-                if(!user.email.equals(email.text.toString().trim())){
-                    val user = Constants.AUTH.currentUser
-                    val email_new : String = email.text.toString().trim()
-                    user!!.updateEmail(email_new)
-                        .addOnCompleteListener { task ->
-                            if (task.isSuccessful) {
-                                val updates = HashMap<String, Any>()
-                                updates["email"] = email.text.toString().trim()
-                                updates["fullName"] = fullname.text.toString().trim()
-                                updates["birth"] = birth.text.toString().trim()
-                                updates["gender"] = gender.text.toString().trim()
-                                database.child(path).updateChildren(updates)
-                                    .addOnSuccessListener {
-                                        Toast(activity).showCustomToast("Update Profile Success", activity, Constants.CUSTOM_TOAST_SUCCESS)
-                                        Constants.AUTH.signOut()
-                                        val intent = Intent(activity, LoginActivity::class.java)
-                                        startActivity(intent)
-                                        activity?.finish()
-                                    }
-                                    .addOnFailureListener {
-                                        Toast(activity).showCustomToast(it.message.toString(), activity, Constants.CUSTOM_TOAST_ERROR)
-                                    }
-                            }else{
-                                Log.w("TAG",task.exception.toString())
-                                Toast(activity).showCustomToast("Update Profile Fail", activity, Constants.CUSTOM_TOAST_ERROR)
+            if(requireActivity().intent.hasExtra("GOOGLE")==true){
+                Toast(activity).showCustomToast("You can't update while logged in with Google", activity, Constants.CUSTOM_TOAST_ERROR)
+            }else {
+                val user = Constants.AUTH.currentUser
+                user?.let {
+                    val uid = user.uid
+                    val path: String = Constants.USERS + uid
+                    if (!user.email.equals(email.text.toString().trim())) {
+                        val user = Constants.AUTH.currentUser
+                        val email_new: String = email.text.toString().trim()
+                        user!!.updateEmail(email_new)
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    val updates = HashMap<String, Any>()
+                                    updates["email"] = email.text.toString().trim()
+                                    updates["fullName"] = fullname.text.toString().trim()
+                                    updates["birth"] = birth.text.toString().trim()
+                                    updates["gender"] = gender.text.toString().trim()
+                                    database.child(path).updateChildren(updates)
+                                        .addOnSuccessListener {
+                                            Toast(activity).showCustomToast(
+                                                "Update Profile Success",
+                                                activity,
+                                                Constants.CUSTOM_TOAST_SUCCESS
+                                            )
+                                            Constants.AUTH.signOut()
+                                            val intent = Intent(activity, LoginActivity::class.java)
+                                            startActivity(intent)
+                                            activity?.finish()
+                                        }
+                                        .addOnFailureListener {
+                                            Toast(activity).showCustomToast(
+                                                it.message.toString(),
+                                                activity,
+                                                Constants.CUSTOM_TOAST_ERROR
+                                            )
+                                        }
+                                } else {
+                                    Log.w("TAG", task.exception.toString())
+                                    Toast(activity).showCustomToast(
+                                        "Update Profile Fail",
+                                        activity,
+                                        Constants.CUSTOM_TOAST_ERROR
+                                    )
+                                }
                             }
-                        }
-                }else{
-                    val updates = HashMap<String, Any>()
-                    updates["fullName"] = fullname.text.toString().trim()
-                    updates["birth"] = birth.text.toString().trim()
-                    updates["gender"] = gender.text.toString().trim()
-                    database.child(path).updateChildren(updates)
-                        .addOnSuccessListener {
-                            Toast(activity).showCustomToast("Update Profile Success", activity, Constants.CUSTOM_TOAST_SUCCESS)
-                        }
-                        .addOnFailureListener {
-                            Toast(activity).showCustomToast("Update Profile Fail", activity, Constants.CUSTOM_TOAST_ERROR)
-                        }
+                    } else {
+                        val updates = HashMap<String, Any>()
+                        updates["fullName"] = fullname.text.toString().trim()
+                        updates["birth"] = birth.text.toString().trim()
+                        updates["gender"] = gender.text.toString().trim()
+                        database.child(path).updateChildren(updates)
+                            .addOnSuccessListener {
+                                Toast(activity).showCustomToast(
+                                    "Update Profile Success",
+                                    activity,
+                                    Constants.CUSTOM_TOAST_SUCCESS
+                                )
+                            }
+                            .addOnFailureListener {
+                                Toast(activity).showCustomToast(
+                                    "Update Profile Fail",
+                                    activity,
+                                    Constants.CUSTOM_TOAST_ERROR
+                                )
+                            }
+                    }
                 }
             }
         }
 
         btnChangePass.setOnClickListener {
-            val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_change_password, null)
-            val builder = AlertDialog.Builder(context)
-                .setView(dialogView)
-            val dialog = builder.create()
+            if (requireActivity().intent.hasExtra("GOOGLE") == true) {
+                Toast(activity).showCustomToast(
+                    "You can't update while logged in with Google",
+                    activity,
+                    Constants.CUSTOM_TOAST_WARN
+                )
+            } else {
+                val dialogView =
+                    LayoutInflater.from(context).inflate(R.layout.dialog_change_password, null)
+                val builder = AlertDialog.Builder(context)
+                    .setView(dialogView)
+                val dialog = builder.create()
 
-            val btnUpdate = dialogView.findViewById<Button>(R.id.btnUpdate)
-            val btnDelete = dialogView.findViewById<Button>(R.id.btnDelete)
-            val password = dialogView.findViewById<EditText>(R.id.password)
-            val verPassword = dialogView.findViewById<EditText>(R.id.verPassword)
-            val newPassword = dialogView.findViewById<EditText>(R.id.newPassword)
+                val btnUpdate = dialogView.findViewById<Button>(R.id.btnUpdate)
+                val btnDelete = dialogView.findViewById<Button>(R.id.btnDelete)
+                val password = dialogView.findViewById<EditText>(R.id.password)
+                val verPassword = dialogView.findViewById<EditText>(R.id.verPassword)
+                val newPassword = dialogView.findViewById<EditText>(R.id.newPassword)
 
-            btnUpdate.setOnClickListener {
-                val pass = password.text.toString().trim()
-                val new_pass = newPassword.text.toString().trim()
-                val ver_pass = verPassword.text.toString().trim()
-                if(pass.equals(new_pass)){
-                    Toast(activity).showCustomToast("New password duplicated.", activity, Constants.CUSTOM_TOAST_ERROR)
-                }else if(new_pass.equals(ver_pass)==false){
-                    Toast(activity).showCustomToast("Verification failed.", activity, Constants.CUSTOM_TOAST_ERROR)
-                }else{
-                    val user = Constants.AUTH.currentUser
-                    user?.let {
-                        val uid = user.uid
-                        val path: String = Constants.USERS + uid
-                        database.child(path).addValueEventListener(object : ValueEventListener {
-                            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                                val user_info :User ?= dataSnapshot.getValue(User::class.java)
-                                if(user_info!=null){
-                                    if(pass.equals(user_info.password)==false){
-                                        Toast(activity).showCustomToast("Current password is wrong", activity, Constants.CUSTOM_TOAST_ERROR)
-                                    }else{
-                                        user!!.updatePassword(new_pass)
-                                            .addOnCompleteListener { task ->
-                                                if (task.isSuccessful) {
-                                                    val updates = HashMap<String, Any>()
-                                                    updates["password"] = new_pass
-                                                    database.child(path).updateChildren(updates)
-                                                        .addOnSuccessListener {
-                                                            Toast(activity).showCustomToast("Change password success", activity, Constants.CUSTOM_TOAST_SUCCESS)
-                                                        }
-                                                        .addOnFailureListener {
-                                                            Toast(activity).showCustomToast("Change password failed", activity, Constants.CUSTOM_TOAST_ERROR)
-                                                        }
-                                                }else{
-                                                    Log.e("TAG",task.exception.toString())
-                                                    Toast(activity).showCustomToast("Change password failed", activity, Constants.CUSTOM_TOAST_ERROR)
+                btnUpdate.setOnClickListener {
+                    val pass = password.text.toString().trim()
+                    val new_pass = newPassword.text.toString().trim()
+                    val ver_pass = verPassword.text.toString().trim()
+                    if (pass.equals(new_pass)) {
+                        Toast(activity).showCustomToast(
+                            "New password duplicated.",
+                            activity,
+                            Constants.CUSTOM_TOAST_ERROR
+                        )
+                    } else if (new_pass.equals(ver_pass) == false) {
+                        Toast(activity).showCustomToast(
+                            "Verification failed.",
+                            activity,
+                            Constants.CUSTOM_TOAST_ERROR
+                        )
+                    } else {
+                        val user = Constants.AUTH.currentUser
+                        user?.let {
+                            val uid = user.uid
+                            val path: String = Constants.USERS + uid
+                            database.child(path).addValueEventListener(object : ValueEventListener {
+                                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                                    val user_info: User? = dataSnapshot.getValue(User::class.java)
+                                    if (user_info != null) {
+                                        if (pass.equals(user_info.password) == false) {
+                                            Toast(activity).showCustomToast(
+                                                "Current password is wrong",
+                                                activity,
+                                                Constants.CUSTOM_TOAST_ERROR
+                                            )
+                                        } else {
+                                            user!!.updatePassword(new_pass)
+                                                .addOnCompleteListener { task ->
+                                                    if (task.isSuccessful) {
+                                                        val updates = HashMap<String, Any>()
+                                                        updates["password"] = new_pass
+                                                        database.child(path).updateChildren(updates)
+                                                            .addOnSuccessListener {
+                                                                Toast(activity).showCustomToast(
+                                                                    "Change password success",
+                                                                    activity,
+                                                                    Constants.CUSTOM_TOAST_SUCCESS
+                                                                )
+                                                            }
+                                                            .addOnFailureListener {
+                                                                Toast(activity).showCustomToast(
+                                                                    "Change password failed",
+                                                                    activity,
+                                                                    Constants.CUSTOM_TOAST_ERROR
+                                                                )
+                                                            }
+                                                    } else {
+                                                        Log.e("TAG", task.exception.toString())
+                                                        Toast(activity).showCustomToast(
+                                                            "Change password failed",
+                                                            activity,
+                                                            Constants.CUSTOM_TOAST_ERROR
+                                                        )
+                                                    }
                                                 }
-                                            }
+                                        }
                                     }
                                 }
-                            }
 
-                            override fun onCancelled(databaseError: DatabaseError) {
-                                // Getting Post failed, log a message
-                                Log.w("TAG", "loadPost:onCancelled", databaseError.toException())
-                            }
-                        })
+                                override fun onCancelled(databaseError: DatabaseError) {
+                                    // Getting Post failed, log a message
+                                    Log.w(
+                                        "TAG",
+                                        "loadPost:onCancelled",
+                                        databaseError.toException()
+                                    )
+                                }
+                            })
 
+                        }
                     }
+                    dialog.dismiss()
                 }
-                dialog.dismiss()
-            }
-            btnDelete.setOnClickListener {
-                dialog.dismiss()
-            }
+                btnDelete.setOnClickListener {
+                    dialog.dismiss()
+                }
 
-            dialog.show()
+                dialog.show()
+            }
         }
     }
 
     private fun displayProfile(){
         val user = Constants.AUTH.currentUser
-        user?.let {
-            val uid = user.uid
-            database.child(Constants.USERS+uid).addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    val user_info :User ?= dataSnapshot.getValue(User::class.java)
-                    if(user_info!=null){
-                        email.text = user_info.email
-                        //password.text = user_info.password
-                        fullname.text = user_info.fullName
-                        birth.text = user_info.birth
-                        gender.text = user_info.gender
-                    }
-                }
+        if(requireActivity().intent.hasExtra("GOOGLE")==true){
+            user?.let {
+                email.text = user.email
+                fullname.text = user.displayName
+            }
+        }else {
+            user?.let {
+                val uid = user.uid
+                database.child(Constants.USERS + uid)
+                    .addValueEventListener(object : ValueEventListener {
+                        override fun onDataChange(dataSnapshot: DataSnapshot) {
+                            val user_info: User? = dataSnapshot.getValue(User::class.java)
+                            if (user_info != null) {
+                                email.text = user_info.email
+                                //password.text = user_info.password
+                                fullname.text = user_info.fullName
+                                birth.text = user_info.birth
+                                gender.text = user_info.gender
+                            }
+                        }
 
-                override fun onCancelled(databaseError: DatabaseError) {
-                    // Getting Post failed, log a message
-                    Log.w("TAG", "loadPost:onCancelled", databaseError.toException())
-                }
-            })
+                        override fun onCancelled(databaseError: DatabaseError) {
+                            // Getting Post failed, log a message
+                            Log.w("TAG", "loadPost:onCancelled", databaseError.toException())
+                        }
+                    })
+            }
         }
     }
 }

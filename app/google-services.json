@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "754946078939",
+    "firebase_url": "https://btlandroid-b5550-default-rtdb.firebaseio.com",
     "project_id": "btlandroid-b5550",
     "storage_bucket": "btlandroid-b5550.appspot.com"
   },
@@ -22,7 +23,7 @@
           }
         },
         {
-          "client_id": "754946078939-57tm2l21vm7r0rdf6vpbmkhjnhu5agc3.apps.googleusercontent.com",
+          "client_id": "754946078939-ksqtopipkdierne3ufbn9cup13u7l91m.apps.googleusercontent.com",
           "client_type": 3
         }
       ],

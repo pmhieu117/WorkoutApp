@@ -39,5 +39,8 @@ class SplashActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+//        val intent = Intent(this@SplashActivity, TestFacebook::class.java)
+//        startActivity(intent)
+//        finish()
     }
 }

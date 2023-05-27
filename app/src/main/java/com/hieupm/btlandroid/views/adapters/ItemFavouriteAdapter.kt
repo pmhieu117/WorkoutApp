@@ -38,16 +38,16 @@ class ItemFavouriteAdapter (private val context: Context, private var exerciseLi
             tvTitle.text = exercise.title
             tvCount.text = "x"+exercise.set_num.toString()
             Glide.with(itemView).asGif().load(exercise.uri_img).into(imgExercise)
-            itemView.setOnClickListener {
-                val bundle = Bundle()
-                bundle.putString("exercise_id",exercise.id)
-                val fragmentPlay = WorkoutPlayFragment()
-                fragmentPlay.arguments = bundle
-                val fragmentManager = (context as AppCompatActivity).supportFragmentManager
-                fragmentManager.beginTransaction()
-                    .replace(R.id.nav_frame, fragmentPlay)
-                    .commit()
-            }
+//            itemView.setOnClickListener {
+//                val bundle = Bundle()
+//                bundle.putString("exercise_id",exercise.id)
+//                val fragmentPlay = WorkoutPlayFragment()
+//                fragmentPlay.arguments = bundle
+//                val fragmentManager = (context as AppCompatActivity).supportFragmentManager
+//                fragmentManager.beginTransaction()
+//                    .replace(R.id.nav_frame, fragmentPlay)
+//                    .commit()
+//            }
         }
     }
     private fun playWorkout(context: Context, item: Exercise){

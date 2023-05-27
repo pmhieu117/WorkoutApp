@@ -10,8 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -51,13 +52,13 @@
                 android:padding="12dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-<!--        <CheckBox-->
-<!--            android:id="@+id/checkbox"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginLeft="110dp"-->
-<!--            android:layout_marginTop="16dp"-->
-<!--            android:text="Remember account" />-->
+        <!--        <CheckBox-->
+        <!--            android:id="@+id/checkbox"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginLeft="110dp"-->
+        <!--            android:layout_marginTop="16dp"-->
+        <!--            android:text="Remember account" />-->
 
         <Button
             android:id="@+id/btn_login"
@@ -117,48 +118,19 @@
                 android:background="#E7E7E7" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/btnFb"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_marginTop="20dp"
+            android:text="Fb"
+            android:textSize="20dp" />
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/facebook_2020_200" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:text="Log in with facebook"
-                android:textColor="#3897F0"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/btnGg"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/google_icon" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:text="Log in with google"
-                android:textColor="#3897F0"
-                android:textStyle="bold" />
-
-        </LinearLayout>
+            android:layout_marginTop="20dp" />
     </LinearLayout>
 
     <View
